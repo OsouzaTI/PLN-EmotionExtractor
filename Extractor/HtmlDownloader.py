@@ -1,3 +1,4 @@
+import re
 import requests
 from bs4 import BeautifulSoup
 
@@ -16,6 +17,9 @@ class HtmlDownloader():
     
     def get_bs4(self) -> BeautifulSoup:
         return self.bs4
+
+    def find_all_regex(self, reg : str):
+        return re.findall(reg, self.html.text)
 
     def load(self) -> None:
         try:
